@@ -81,7 +81,7 @@ npm run dev
 
 - `cors({ origin: process.env.REACT_SERVER || true })` falls back to `true`, which reflects **any** origin. With `credentials: true` that is too permissive for production — it should fail closed when the env var is missing.
 - No tests. `npm test` is still the npm placeholder.
-- The backend has no `.env.example`, so the required variables aren't discoverable from the repo.
+- Setup is now discoverable: `backend/.env.example` lists the three server variables and `frontend/.env.example` lists the seven Firebase client variables.
 
 ## License
 
