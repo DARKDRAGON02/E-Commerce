@@ -58,6 +58,19 @@ Using `arrayFilters` matters here — it updates only the matching elements insi
 **Frontend** — React 19 · Vite 7 · Tailwind CSS 4 · React Router 7 · Axios · Firebase · GSAP · Swiper
 **Backend** — Express 5 · Mongoose 8 · MongoDB · firebase-admin · node-cron · Twilio
 
+## Configuration
+
+Both sides ship an `.env.example`. Copy it, fill it, and you're running:
+
+| File | Variables |
+|---|---|
+| `backend/.env.example` | `MONGO_URI`, `PORT`, `REACT_SERVER` (CORS origin) |
+| `frontend/.env.example` | the seven `VITE_FIREBASE_*` client values |
+
+Firebase Admin credentials are not environment variables — download a service-account key and save it as `backend/serviceAccountKey.json`, which is already gitignored.
+
+The `.gitignore` excludes `.env*` broadly, so both templates are re-included explicitly with `!.env.example` at the end of the file.
+
 ## Run it
 
 Backend:
@@ -81,7 +94,6 @@ npm run dev
 
 - `cors({ origin: process.env.REACT_SERVER || true })` falls back to `true`, which reflects **any** origin. With `credentials: true` that is too permissive for production — it should fail closed when the env var is missing.
 - No tests. `npm test` is still the npm placeholder.
-- Setup is now discoverable: `backend/.env.example` lists the three server variables and `frontend/.env.example` lists the seven Firebase client variables.
 
 ## License
 
