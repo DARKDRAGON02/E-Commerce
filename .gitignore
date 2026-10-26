@@ -108,3 +108,9 @@ __mocks__/
 cypress/screenshots/
 cypress/videos/
 lib-cov/
+
+# === Allow committed env templates ===
+# The .env* rules above are for secrets. Templates hold no values and are meant
+# to be committed, so re-include them here where they override earlier patterns.
+!.env.example
+!**/.env.example
